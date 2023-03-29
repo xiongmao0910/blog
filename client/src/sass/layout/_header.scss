@@ -1,0 +1,40 @@
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--header-height);
+    background-color: var(--clr-white);
+    z-index: 1000;
+
+    &-container {
+        padding-block: 0.5rem;
+    }
+
+    &-logo {
+        font-family: var(--ff-secondary);
+        font-size: var(--fs-400);
+        font-weight: var(--fw-medium);
+        text-transform: uppercase;
+        /** Custom style */
+        padding: 0.25rem 0.5rem;
+        background-color: var(--clr-neutral-500);
+        color: var(--clr-white);
+        border-radius: 0.25rem;
+    }
+
+    &-icon {
+        padding: 0.5rem;
+        font-size: 1.563rem;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    &-img {
+        width: 2rem;
+        aspect-ratio: 1;
+        border-radius: 100%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+}

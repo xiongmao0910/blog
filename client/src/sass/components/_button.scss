@@ -1,0 +1,42 @@
+.button,
+button {
+    cursor: pointer;
+    display: inline-block;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-300);
+    font-weight: 500;
+    text-transform: capitalize;
+    padding: 0.5rem 1rem;
+    background-color: var(--bg);
+    color: var(--clr);
+    border: thin solid var(--br);
+    border-radius: 0.5rem;
+    transition: background-color 350ms ease, color 350ms ease;
+
+    &[button-variant="contained"] {
+        --bg: var(--clr-primary-500);
+        --clr: var(--clr-neutral-100);
+        --br: var(--bg);
+
+        &:hover {
+            --bg: var(--clr-primary-300);
+        }
+    }
+
+    &[button-variant="outlined"] {
+        --bg: transparent;
+        --clr: var(--clr-primary-500);
+        --br: var(--clr);
+
+        &:hover {
+            --bg: var(--clr-primary-500);
+            --clr: var(--clr-neutral-100);
+            --br: var(--bg);
+        }
+    }
+
+    &[data-visible="false"] {
+        opacity: 0.8;
+        pointer-events: none;
+    }
+}

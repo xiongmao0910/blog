@@ -1,0 +1,10 @@
+export { default as Home } from "./Home";
+export { default as Search } from "./Search";
+export { default as Profile } from "./profile/Profile";
+export { default as EditProfile } from "./profile/EditProfile";
+export { default as Post } from "./post/Post";
+export { default as Dashboard } from "./Dashboard";
+export { default as CreatePost } from "./post/CreatePost";
+export { default as EditPost } from "./post/EditPost";
+export { default as LogIn } from "./auth/LogIn";
+export { default as SignUp } from "./auth/SignUp";

@@ -1,0 +1,35 @@
+@use "../abstract" as *;
+
+:root {
+    --clr-white: #ffffff;
+    --clr-black: #000000;
+
+    @each $color, $shade in $colors {
+        @each $prop, $value in $shade {
+            --clr-#{$color}-#{$prop}: #{$value};
+        }
+    }
+
+    --ff-primary: "Merriweather Sans", sans-serif;
+    --ff-secondary: "Fjalla One", sans-serif;
+
+    @each $prop, $value in $font-weights {
+        --fw-#{$prop}: #{$value};
+    }
+
+    @each $screen-size, $property in $font-sizes {
+        @if $screen-size == small {
+            @each $prop, $value in $property {
+                --fs-#{$prop}: #{$value};
+            }
+        } @else {
+            @include mq(small) {
+                @each $prop, $value in $property {
+                    --fs-#{$prop}: #{$value};
+                }
+            }
+        }
+    }
+
+    --header-height: 4.5rem;
+}

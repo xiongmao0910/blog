@@ -1,0 +1,13 @@
+@use "../abstract" as *;
+
+.auth {
+    background-color: var(--clr-white);
+    width: min(100% - 2rem, var(--auth-width, 40rem));
+    padding: 1.5rem;
+    margin-inline: auto;
+    border-radius: 0.5rem;
+
+    @include mq(small) {
+        padding: 3rem;
+    }
+}

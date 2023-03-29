@@ -1,0 +1,43 @@
+html {
+    font-size: 100%;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--ff-primary);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-regular);
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+input,
+button {
+    outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    --moz-appearance: textfield;
+}
+
+ul,
+ol {
+    list-style: none;
+}

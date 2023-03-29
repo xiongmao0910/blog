@@ -1,6 +1,7 @@
 // Import library
 const express = require("express");
 const cors = require("cors");
+const myParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 
@@ -18,6 +19,8 @@ app.use(
         extended: true,
     })
 );
+app.use(myParser.json({ limit: "200mb" }));
+app.use(myParser.urlencoded({ limit: "200mb", extended: true }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors());

@@ -1,0 +1,7 @@
+@use "../abstract" as *;
+
+@each $prop, $value in $font-weights {
+    .fw-#{$prop} {
+        font-weight: var(--fw-#{$prop});
+    }
+}

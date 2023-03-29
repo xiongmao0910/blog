@@ -1,0 +1,11 @@
+@use "../abstract" as *;
+
+.section {
+    background-color: var(--clr-neutral-100);
+    min-height: calc(100vh - var(--header-height));
+    padding-block: 2rem;
+
+    @include mq(small) {
+        padding-block: 4rem;
+    }
+}

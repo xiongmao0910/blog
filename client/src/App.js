@@ -1,8 +1,15 @@
+// Import components
+import { BlogProvider } from "./context/BlogContext";
+import BlogRoutes from "./routes";
+
+// Import scss
+import "./sass/styles.scss";
+
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">Hello</header>
-        </div>
+        <BlogProvider>
+            <BlogRoutes />
+        </BlogProvider>
     );
 }
 
