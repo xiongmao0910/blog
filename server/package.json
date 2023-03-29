@@ -1,0 +1,30 @@
+{
+  "name": "blog-mern-server",
+  "version": "1.0.0",
+  "description": "Build server for blog website",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiongmao0910/blog.git"
+  },
+  "author": "Xiongmao - Hoang Hieu Trung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiongmao0910/blog/issues"
+  },
+  "homepage": "https://github.com/xiongmao0910/blog#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
