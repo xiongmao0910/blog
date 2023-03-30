@@ -69,7 +69,7 @@ class UserController {
 
         await newUser.save();
 
-        res.json({ success: true, msg: "Bạn đã đăng ký thành công!" });
+        return res.json({ success: true, msg: "Bạn đã đăng ký thành công!" });
     }
 
     // [POST] -> path: /user/login

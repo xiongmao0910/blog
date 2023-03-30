@@ -71,7 +71,7 @@ const Header = () => {
                                                 className="dropdown-link"
                                                 to={`/${currentUser.username}`}
                                             >
-                                                <div>Profile</div>
+                                                <div>Hồ sơ người dùng</div>
                                                 <small>
                                                     @{currentUser.username}
                                                 </small>
@@ -97,7 +97,7 @@ const Header = () => {
                                                 className="dropdown-link"
                                                 to="/post/create"
                                             >
-                                                create post
+                                                tạo bài viết
                                             </Link>
                                         </li>
                                         <li className="dropdown-divider"></li>
@@ -106,7 +106,7 @@ const Header = () => {
                                             onClick={handleLogout}
                                         >
                                             <div className="dropdown-link">
-                                                log out
+                                                đăng xuất
                                             </div>
                                         </li>
                                     </>
@@ -122,7 +122,7 @@ const Header = () => {
                                                 className="dropdown-link"
                                                 to="/login"
                                             >
-                                                log in
+                                                đăng nhập
                                             </Link>
                                         </li>
                                         <li
@@ -133,7 +133,7 @@ const Header = () => {
                                                 className="dropdown-link"
                                                 to="/signup"
                                             >
-                                                sign up
+                                                đăng ký
                                             </Link>
                                         </li>
                                     </>

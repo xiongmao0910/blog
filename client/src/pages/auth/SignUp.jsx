@@ -65,10 +65,11 @@ const SignUp = () => {
                     <form className="form flow" onSubmit={handleSubmit}>
                         <div className="form-content">
                             <h4 className="form-heading text-center">
-                                Welcome to BLOG Community
+                                Chào mừng bạn đến với cộng đồng BLOG
                             </h4>
                             <p className="form-desc text-center">
-                                BLOG Community is a community of series
+                                Cộng đồng BLOG là một cộng đồng chia sẻ những
+                                kiến thức bổ ích
                             </p>
                         </div>
                         {/* With social account */}
@@ -79,7 +80,7 @@ const SignUp = () => {
                                     htmlFor="username"
                                     className="form-label"
                                 >
-                                    username
+                                    nhập tên người dùng
                                 </label>
                                 <input
                                     type="text"
@@ -91,7 +92,7 @@ const SignUp = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="email" className="form-label">
-                                    email
+                                    nhập địa chỉ email
                                 </label>
                                 <input
                                     type="text"
@@ -106,7 +107,7 @@ const SignUp = () => {
                                     htmlFor="password"
                                     className="form-label"
                                 >
-                                    password
+                                    nhập mật khẩu
                                 </label>
                                 <input
                                     type="password"
@@ -121,7 +122,7 @@ const SignUp = () => {
                                     htmlFor="repassword"
                                     className="form-label"
                                 >
-                                    repassword
+                                    nhập lại mật khẩu
                                 </label>
                                 <input
                                     type="password"
@@ -136,7 +137,7 @@ const SignUp = () => {
                                 button-variant="contained"
                                 type="submit"
                             >
-                                sign up
+                                đăng ký
                             </button>
                         </div>
                     </form>

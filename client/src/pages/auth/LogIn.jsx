@@ -48,10 +48,11 @@ const LogIn = () => {
                     <form className="form flow" onSubmit={handleSubmit}>
                         <div className="form-content">
                             <h4 className="form-heading text-center">
-                                Welcome to BLOG Community
+                                Chào mừng bạn đến với cộng đồng BLOG
                             </h4>
                             <p className="form-desc text-center">
-                                BLOG Community is a community of series
+                                Cộng đồng BLOG là một cộng đồng chia sẻ những
+                                kiến thức bổ ích
                             </p>
                         </div>
                         {/* With social account */}
@@ -59,7 +60,7 @@ const LogIn = () => {
                         <div className="form-type flow">
                             <div className="form-group">
                                 <label htmlFor="email" className="form-label">
-                                    email
+                                    Nhập email
                                 </label>
                                 <input
                                     type="text"
@@ -74,7 +75,7 @@ const LogIn = () => {
                                     htmlFor="password"
                                     className="form-label"
                                 >
-                                    password
+                                    Nhập mật khẩu
                                 </label>
                                 <input
                                     type="password"
@@ -89,7 +90,7 @@ const LogIn = () => {
                                 button-variant="contained"
                                 type="submit"
                             >
-                                sign in
+                                đăng nhập
                             </button>
                         </div>
                     </form>

@@ -61,7 +61,7 @@ export const BlogProvider = ({ children }) => {
             );
 
             /**
-             * Lay thong tin va luu token vao localStorage
+             * Lay du lieu tra ve
              */
             const { success, msg } = await response.json();
             if (success) {
@@ -144,7 +144,7 @@ export const BlogProvider = ({ children }) => {
             });
 
             /**
-             * Lay thong tin va luu token vao localStorage
+             * Lay du lieu tra ve
              */
             const { data, success, msg } = await response.json();
             if (success) {
@@ -168,6 +168,66 @@ export const BlogProvider = ({ children }) => {
         }
     }
 
+    async function createPost(post) {
+        try {
+            /**
+             * Gui yeu cau len server
+             */
+            const response = await fetch("http://localhost:5000/post/create", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    ...post,
+                }),
+            });
+
+            /**
+             * Lay du lieu tra ve
+             */
+            const { success, msg } = await response.json();
+
+            if (success) {
+                // Thong bao tao bai viet thanh cong
+                console.log(msg);
+                return true;
+            }
+            // Thong bao tao bai viet that bai
+            console.log(msg);
+            return false;
+        } catch (error) {
+            // Thong bao tao bai viet that bai
+            console.log("Lỗi tạo bài viết. Vui lòng thực hiện lại");
+            console.log(error);
+            return false;
+        }
+    }
+
+    async function getPost(username, slug) {
+        try {
+            /**
+             * Gui yeu cau len server
+             */
+            const response = await fetch(
+                `http://localhost:5000/post/${username}/${slug}`
+            );
+            /**
+             * Lay du lieu tra ve
+             */
+            const { success, data, msg } = await response.json();
+            if (success) {
+                // Tra ve du lieu bai viet
+                return data;
+            }
+
+            // Thong bao loi
+            console.log(msg);
+            return;
+        } catch (error) {
+            console.log("Loi server. Vui long thuc hien lai sau!");
+            console.log(error);
+        }
+    }
+
     async function convertImageFile(file) {
         const base64 = await convertImageToBase64(file);
 
@@ -181,6 +241,8 @@ export const BlogProvider = ({ children }) => {
         login,
         signout,
         update,
+        createPost,
+        getPost,
         convertImageFile,
     };
 
