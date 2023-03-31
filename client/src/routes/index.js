@@ -14,6 +14,7 @@ import {
     Dashboard,
     CreatePost,
     EditPost,
+    ManagePost,
     LogIn,
     SignUp,
 } from "../pages";
@@ -29,9 +30,9 @@ const BlogRoutes = () => {
                     <Route path="/search" element={<Search />} />
                     {/* Detail post */}
                     <Route path="/:username/:slug" element={<Post />} />
+                    {/* Profile */}
+                    <Route path="/:username" element={<Profile />} />
                     <Route element={<ClientRoute />}>
-                        {/* Profile */}
-                        <Route path="/:username" element={<Profile />} />
                         <Route
                             path="/:username/edit"
                             element={<EditProfile />}
@@ -39,6 +40,10 @@ const BlogRoutes = () => {
                         {/* Manage post */}
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/post/create" element={<CreatePost />} />
+                        <Route
+                            path="/post/:slug/manage"
+                            element={<ManagePost />}
+                        />
                         <Route path="/post/:slug/edit" element={<EditPost />} />
                     </Route>
                     {/* Routes for Authentication */}

@@ -113,6 +113,37 @@ class UserController {
         });
     }
 
+    // [GET] -> path: /:username
+    async getUser(req, res) {
+        const { username } = req.params;
+
+        try {
+            const user = await User.findOne({ username });
+            if (!user) {
+                return res.status(404).json({
+                    success: false,
+                    msg: "Không tìm thấy người dùng!",
+                });
+            }
+
+            return res.status(200).json({
+                success: true,
+                data: {
+                    username: user.username,
+                    email: user.email,
+                    bio: user.bio,
+                    photoURL: user.photoURL,
+                    createdAt: user.createdAt,
+                    updatedAt: user.updatedAt,
+                },
+            });
+        } catch (error) {
+            return res
+                .status(400)
+                .json({ msg: "Lỗi server. Vui lòng thử lại sau!" });
+        }
+    }
+
     // [PUT] -> path: /user/update
     async update(req, res) {
         // * Get data from client

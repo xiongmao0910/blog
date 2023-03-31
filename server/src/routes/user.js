@@ -8,6 +8,7 @@ const userMiddlewares = require("../middlewares/user");
 const router = express.Router();
 
 router.get("/:token", userMiddlewares.verifyToken, userController.index);
+router.get("/get/:username", userController.getUser);
 router.post("/register", userController.register);
 router.post("/login", userController.login);
 router.put("/update", userController.update);

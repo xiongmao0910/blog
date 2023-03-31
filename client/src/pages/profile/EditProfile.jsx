@@ -114,7 +114,7 @@ const EditProfile = () => {
                                     htmlFor="username"
                                     className="form-label"
                                 >
-                                    username
+                                    Tên người dùng
                                 </label>
                                 <input
                                     type="text"
@@ -127,7 +127,7 @@ const EditProfile = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="email" className="form-label">
-                                    email
+                                    Email
                                 </label>
                                 <input
                                     type="text"
@@ -140,7 +140,7 @@ const EditProfile = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="bio" className="form-label">
-                                    bio
+                                    Giới thiệu
                                 </label>
                                 <textarea
                                     className="form-control"
@@ -152,7 +152,7 @@ const EditProfile = () => {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="file" className="form-label">
-                                    image
+                                    Ảnh đại diện
                                 </label>
                                 <input
                                     type="file"
@@ -170,7 +170,7 @@ const EditProfile = () => {
                                 type="submit"
                                 data-visible={isChanged}
                             >
-                                save
+                                lưu
                             </button>
                         </div>
                     </form>

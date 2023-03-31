@@ -7,7 +7,7 @@ import { useBlog } from "../context/BlogContext";
 const ClientRoute = () => {
     const { currentUser } = useBlog();
 
-    return !!currentUser ? <Outlet /> : <Navigate to="/" />;
+    return !!currentUser ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default ClientRoute;

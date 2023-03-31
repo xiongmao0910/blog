@@ -1,0 +1,52 @@
+@use "../abstract" as *;
+
+.card {
+    background-color: var(--clr-white);
+    padding: 1rem;
+    border-radius: 0.5rem;
+
+    @include mq(small) {
+        padding: 1.25rem;
+    }
+
+    &-detail {
+        --gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &-img {
+        width: 2.5rem;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+
+    &-subtitle {
+        font-weight: var(--fw-semibold);
+    }
+
+    &-caption {
+        font-size: 75%;
+        font-weight: var(--fw-medium);
+        color: var(--clr-neutral-400);
+    }
+
+    &-content {
+        padding-block: 1rem;
+
+        @include mq(small) {
+            padding-left: 3rem;
+        }
+    }
+
+    &-heading {
+        font-size: var(--fs-500);
+
+        & > * {
+            &:hover {
+                color: var(--clr-primary-500);
+            }
+        }
+    }
+}

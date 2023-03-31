@@ -1,0 +1,64 @@
+@use "../abstract" as *;
+
+.post {
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--clr-white);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+
+    @include mq(small) {
+        padding: 1rem 2rem;
+    }
+
+    @include mq(medium) {
+        padding: 2rem 4rem;
+    }
+
+    &-author {
+        img {
+            width: 2.5rem;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 100%;
+        }
+    }
+
+    &-username {
+        font-weight: var(--fw-bold);
+    }
+
+    &-date {
+        font-size: 75%;
+    }
+
+    &-detail {
+        --flow-spacer: 0.5rem;
+        margin-top: 1.25rem;
+    }
+
+    &-content {
+        --flow-spacer: 1.125rem;
+        padding-block: 1.25rem;
+
+        @include mq(small) {
+            --flow-spacer: 1.25rem;
+            padding-block: 2rem;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            max-height: calc(50vh + 180px);
+            object-fit: cover;
+        }
+
+        a {
+            color: var(--clr-primary-300);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

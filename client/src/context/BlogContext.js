@@ -45,7 +45,7 @@ export const BlogProvider = ({ children }) => {
     async function signup(username, email, password) {
         try {
             /**
-             * Luu thong tin tai khoan vao CSDL
+             * Gui yeu cau len server
              */
             const response = await fetch(
                 "http://localhost:5000/user/register",
@@ -168,6 +168,32 @@ export const BlogProvider = ({ children }) => {
         }
     }
 
+    async function getUser(username) {
+        try {
+            /**
+             * Gui yeu cau len server
+             */
+            const response = await fetch(
+                `http://localhost:5000/user/get/${username}`
+            );
+
+            /**
+             * Lay du lieu tra ve
+             */
+            const { data, success, msg } = await response.json();
+            if (success) {
+                return data;
+            }
+
+            // Thong bao loi nguoi dung khong ton tai
+            console.log(msg);
+            return;
+        } catch (error) {
+            console.log(error);
+            return;
+        }
+    }
+
     async function createPost(post) {
         try {
             /**
@@ -199,6 +225,28 @@ export const BlogProvider = ({ children }) => {
             console.log("Lỗi tạo bài viết. Vui lòng thực hiện lại");
             console.log(error);
             return false;
+        }
+    }
+
+    async function getAllPost() {
+        try {
+            /**
+             * Gui yeu cau len server
+             */
+            const response = await fetch("http://localhost:5000/post");
+            /**
+             * Lay du lieu tra ve
+             */
+            const { success, data } = await response.json();
+            if (success) {
+                // Tra ve du lieu cac bai viet
+                return data;
+            }
+
+            return;
+        } catch (error) {
+            console.log("Loi server. Vui long thuc hien lai sau!");
+            console.log(error);
         }
     }
 
@@ -241,7 +289,9 @@ export const BlogProvider = ({ children }) => {
         login,
         signout,
         update,
+        getUser,
         createPost,
+        getAllPost,
         getPost,
         convertImageFile,
     };

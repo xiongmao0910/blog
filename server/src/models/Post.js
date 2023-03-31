@@ -7,7 +7,7 @@ const Post = new Schema(
     {
         title: { type: String, require: true },
         content: { type: String, require: true },
-        photoURL: { type: String, default: "" },
+        avatar: { type: String, require: true },
         username: { type: String, require: true },
         slug: { type: String, require: true },
         tags: { type: Array, default: [] },

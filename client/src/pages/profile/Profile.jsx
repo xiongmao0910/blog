@@ -1,53 +1,79 @@
 // Import library
-import React from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { RiCake2Fill } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
 
 // Import components
 import { useBlog } from "../../context/BlogContext";
-import { dateFormat } from "../../utils";
+import { shortDateFormat } from "../../utils";
 
 const Profile = () => {
-    const { currentUser } = useBlog();
+    const { currentUser, getUser } = useBlog();
+
+    const { username } = useParams();
+
+    const [user, setUser] = useState();
+
+    useEffect(() => {
+        const getDataUser = async () => {
+            if (currentUser && currentUser.username === username) {
+                setUser(currentUser);
+                return;
+            }
+
+            const data = await getUser(username);
+
+            if (data) {
+                setUser(data);
+            } else {
+                // Hien thi trang 404
+            }
+        };
+
+        getDataUser();
+    }, [currentUser, username, getUser]);
+
+    if (!user) {
+        return <h1>Loading...</h1>;
+    }
 
     return (
         <section className="section">
             <div className="container">
                 <div className="profile">
                     <div className="profile-image">
-                        {currentUser?.photoURL ? (
+                        {user.photoURL ? (
                             <img
                                 className="img-fluid"
-                                src={currentUser.photoURL}
-                                alt={currentUser.username}
+                                src={user.photoURL}
+                                alt={user.username}
                             />
                         ) : (
                             <FaUserCircle className="img-fluid" />
                         )}
                     </div>
-                    <div className="text-right">
-                        <Link
-                            to={`/${currentUser.username}/edit`}
-                            className="button"
-                            button-variant="contained"
-                        >
-                            edit profile
-                        </Link>
-                    </div>
+                    {JSON.stringify(currentUser) === JSON.stringify(user) && (
+                        <div className="profile-button">
+                            <Link
+                                to={`/${user.username}/edit`}
+                                className="button"
+                                button-variant="contained"
+                            >
+                                Chỉnh sửa hồ sơ
+                            </Link>
+                        </div>
+                    )}
                     <div className="profile-detail flow">
-                        <h4 className="fw-extrabold">{currentUser.username}</h4>
-                        <p>
-                            {currentUser.bio.length
-                                ? currentUser.bio
-                                : "No bio to show"}
-                        </p>
+                        <h4 className="fw-extrabold">{user.username}</h4>
+                        <p>{user.bio.length ? user.bio : "No bio to show"}</p>
                         <div className="profile-date d-flex items-center">
                             <span>
                                 <RiCake2Fill />
                             </span>
                             <small>
-                                Join on {dateFormat(currentUser.createdAt)}
+                                Tham gia vào ngày{" "}
+                                {shortDateFormat(user.createdAt)}
                             </small>
                         </div>
                     </div>

@@ -8,4 +8,10 @@ function dateFormat(date) {
     });
 }
 
-export { dateFormat };
+function shortDateFormat(date) {
+    let rs = new Date(date);
+
+    return rs.toLocaleDateString("en-GB");
+}
+
+export { dateFormat, shortDateFormat };

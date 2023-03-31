@@ -6,7 +6,7 @@
     width: min(100%, var(--profile-width));
     margin-inline: auto;
     background-color: var(--clr-white);
-    padding: 0.75rem;
+    padding: 3.375rem 0.75rem 0.75rem 0.75rem;
 
     &-image {
         --size: 4rem;
@@ -32,6 +32,12 @@
             top: -3.5rem;
             transform: translateX(-50%);
         }
+    }
+
+    &-button {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
     }
 
     &-detail {

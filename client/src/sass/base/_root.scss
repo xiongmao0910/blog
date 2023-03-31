@@ -10,8 +10,8 @@
         }
     }
 
-    --ff-primary: "Merriweather Sans", sans-serif;
-    --ff-secondary: "Fjalla One", sans-serif;
+    --ff-primary: "Work Sans", sans-serif;
+    --ff-secondary: "Merriweather", serif;
 
     @each $prop, $value in $font-weights {
         --fw-#{$prop}: #{$value};

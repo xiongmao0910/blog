@@ -13,6 +13,7 @@ $font-weights: (
 $font-sizes: (
     small: (
         // Minor third
+        200: 0.625rem,
         300: 1rem,
         400: 1.125rem,
         500: 1.563rem,
@@ -22,6 +23,7 @@ $font-sizes: (
     ),
     big: (
         // Augmented fourth
+        200: 0.75rem,
         300: 1rem,
         400: 1.25rem,
         500: 2rem,

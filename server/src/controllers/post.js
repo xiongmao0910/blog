@@ -2,8 +2,31 @@
 const Post = require("../models/Post");
 
 class PostController {
-    // [GET] -> path: /post/:username/:slug
+    // [GET] -> path: /post
     async index(req, res) {
+        try {
+            const posts = await Post.find({});
+
+            if (!posts) {
+                return res.status(404).json({
+                    success: false,
+                    msg: "Chưa có bài viết!",
+                });
+            }
+
+            return res.status(200).json({
+                success: true,
+                data: posts,
+            });
+        } catch (error) {
+            return res
+                .status(400)
+                .json({ msg: "Lỗi server. Vui lòng thử lại sau!" });
+        }
+    }
+
+    // [GET] -> path: /post/:username/:slug
+    async getPost(req, res) {
         const { username, slug } = req.params;
 
         try {
@@ -22,7 +45,7 @@ class PostController {
                 data: {
                     title: post.title,
                     content: post.content,
-                    photoURL: post.photoURL,
+                    avatar: post.avatar,
                     username: post.username,
                     slug: post.slug,
                     tags: post.tags,

@@ -4,6 +4,7 @@ export { default as Profile } from "./profile/Profile";
 export { default as EditProfile } from "./profile/EditProfile";
 export { default as Post } from "./post/Post";
 export { default as Dashboard } from "./Dashboard";
+export { default as ManagePost } from "./post/ManagePost";
 export { default as CreatePost } from "./post/CreatePost";
 export { default as EditPost } from "./post/EditPost";
 export { default as LogIn } from "./auth/LogIn";
