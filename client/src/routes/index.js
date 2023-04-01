@@ -3,8 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Import components
 import { Header } from "../components";
+
 import AuthRoute from "./AuthRoute";
 import ClientRoute from "./ClientRoute";
+import PostRoute from "./PostRoute";
+
 import {
     Home,
     Search,
@@ -33,10 +36,6 @@ const BlogRoutes = () => {
                     {/* Profile */}
                     <Route path="/:username" element={<Profile />} />
                     <Route element={<ClientRoute />}>
-                        <Route
-                            path="/:username/edit"
-                            element={<EditProfile />}
-                        />
                         {/* Manage post */}
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/post/create" element={<CreatePost />} />
@@ -44,10 +43,17 @@ const BlogRoutes = () => {
                             path="/:username/:slug/manage"
                             element={<ManagePost />}
                         />
-                        <Route
-                            path="/:username/:slug/edit"
-                            element={<EditPost />}
-                        />
+                        <Route element={<PostRoute />}>
+                            <Route
+                                path="/:username/:slug/edit"
+                                element={<EditPost />}
+                            />
+                            {/* Edit profile */}
+                            <Route
+                                path="/:username/edit"
+                                element={<EditProfile />}
+                            />
+                        </Route>
                     </Route>
                     {/* Routes for Authentication */}
                     <Route element={<AuthRoute />}>
