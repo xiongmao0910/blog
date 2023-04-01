@@ -36,8 +36,6 @@ class PostController {
                 return res.status(404).json({
                     success: false,
                     msg: "Không tìm thấy bài viết!",
-                    username,
-                    slug,
                 });
             }
 
@@ -86,7 +84,24 @@ class PostController {
     }
 
     // [PUT] -> path: /post/edit
-    async edit(req, res) {}
+    async edit(req, res) {
+        // * Get data from client
+        const { username, slug, ...data } = req.body;
+
+        // * Update data to mongodb
+        try {
+            await Post.findOneAndUpdate({ username, slug }, data);
+
+            return res.status(201).json({
+                msg: "Bài viết đã được cập nhật!",
+                success: true,
+            });
+        } catch (error) {
+            return res
+                .status(401)
+                .json({ msg: "Có lỗi gì đó, vui lòng thử lại...!" });
+        }
+    }
 
     // [DELETE] -> path: /post/delete
     async delete(req, res) {

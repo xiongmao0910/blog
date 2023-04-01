@@ -158,6 +158,7 @@ class UserController {
                     new: true,
                 }
             );
+
             return res.status(201).json({
                 msg: "Thông tin người dùng được cập nhật!",
                 success: true,

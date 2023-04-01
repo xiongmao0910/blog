@@ -26,6 +26,22 @@ const Post = () => {
         getPostDetail();
     }, [username, slug, getPost]);
 
+    if (!post) {
+        return (
+            <>
+                <h1>Loadingg....</h1>
+            </>
+        );
+    }
+
+    if (post.error) {
+        return (
+            <>
+                <h1>Pages not found....</h1>
+            </>
+        );
+    }
+
     return (
         <section className="section">
             <div className="container">

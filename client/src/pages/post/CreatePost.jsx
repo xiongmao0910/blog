@@ -116,12 +116,17 @@ const CreatePost = () => {
                             </label>
                             <div className="form-control">
                                 <div
-                                    className="d-flex"
+                                    className="tags d-flex"
                                     style={{ "--gap": "0.25rem" }}
                                 >
                                     {tags.length > 0 &&
                                         tags.map((tag, index) => (
-                                            <p key={tag + index}>#{tag}</p>
+                                            <p
+                                                className="tags-item"
+                                                key={tag + index}
+                                            >
+                                                #{tag}
+                                            </p>
                                         ))}
                                     <input
                                         style={{

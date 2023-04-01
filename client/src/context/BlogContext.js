@@ -269,14 +269,47 @@ export const BlogProvider = ({ children }) => {
 
             // Thong bao loi
             console.log(msg);
-            return;
+            return { error: true };
         } catch (error) {
             console.log("Loi server. Vui long thuc hien lai sau!");
             console.log(error);
         }
     }
 
-    async function editPost(username, slug) {}
+    async function editPost(dataForm) {
+        try {
+            /**
+             * Gui yeu cau len server
+             */
+            const response = await fetch("http://localhost:5000/post/edit", {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    ...dataForm,
+                }),
+            });
+
+            /**
+             * Lay du lieu tra ve
+             */
+            const { success, msg } = await response.json();
+            if (success) {
+                // Thong bao chinh sua thanh cong
+                console.log(msg);
+                return true;
+            }
+
+            // Thong bao chinh sua that bai
+            console.log(msg);
+
+            return false;
+        } catch (error) {
+            // Thong bao chinh sua that bai
+            console.log("Lỗi chỉnh sửa bài viết. Vui lòng thực hiện lại");
+            console.log(error);
+            return false;
+        }
+    }
 
     async function deletePost(username, slug) {
         try {
