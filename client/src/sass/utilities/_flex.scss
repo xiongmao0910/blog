@@ -43,6 +43,16 @@
     }
 }
 
-.flex-wrap {
-    flex-wrap: wrap;
+.flex {
+    &-wrap {
+        flex-wrap: wrap;
+    }
+
+    &-column {
+        flex-direction: column;
+    }
+
+    &-row {
+        flex-direction: row;
+    }
 }

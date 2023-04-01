@@ -41,10 +41,13 @@ const BlogRoutes = () => {
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/post/create" element={<CreatePost />} />
                         <Route
-                            path="/post/:slug/manage"
+                            path="/:username/:slug/manage"
                             element={<ManagePost />}
                         />
-                        <Route path="/post/:slug/edit" element={<EditPost />} />
+                        <Route
+                            path="/:username/:slug/edit"
+                            element={<EditPost />}
+                        />
                     </Route>
                     {/* Routes for Authentication */}
                     <Route element={<AuthRoute />}>

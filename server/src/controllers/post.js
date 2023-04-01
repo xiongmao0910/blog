@@ -19,9 +19,10 @@ class PostController {
                 data: posts,
             });
         } catch (error) {
-            return res
-                .status(400)
-                .json({ msg: "Lỗi server. Vui lòng thử lại sau!" });
+            return res.status(400).json({
+                success: false,
+                msg: "Lỗi server. Vui lòng thử lại sau!",
+            });
         }
     }
 
@@ -81,6 +82,35 @@ class PostController {
                 success: false,
                 msg: "Lỗi tạo bài viết. Vui lòng thực hiện lại!",
             });
+        }
+    }
+
+    // [PUT] -> path: /post/edit
+    async edit(req, res) {}
+
+    // [DELETE] -> path: /post/delete
+    async delete(req, res) {
+        // * Get data from client
+        const { username, slug } = req.body;
+
+        try {
+            const post = await Post.findOneAndDelete({ username, slug });
+
+            if (!post) {
+                return res.status(404).json({
+                    success: false,
+                    msg: "Lỗi xóa bài viết!!",
+                });
+            }
+
+            return res.status(200).json({
+                success: true,
+                msg: "Bài viết đã được xóa.",
+            });
+        } catch (error) {
+            return res
+                .status(400)
+                .json({ success: false, msg: "Lỗi xóa bài viết!!" });
         }
     }
 }

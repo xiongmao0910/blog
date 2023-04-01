@@ -49,7 +49,7 @@ const Post = () => {
                             </div>
                             {currentUser?.username === username && (
                                 <Link
-                                    to={`/post/${post.slug}/manage`}
+                                    to={`/${post.username}/${post.slug}/manage`}
                                     className="button fs-200"
                                     button-variant="contained"
                                 >
