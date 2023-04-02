@@ -28,7 +28,7 @@ class PostController {
 
     // [GET] -> path: /post/:username/dashboard
     async getPosts(req, res) {
-        const { username } = req.body;
+        const { username } = req.params;
 
         try {
             const posts = await Post.find({ username });
