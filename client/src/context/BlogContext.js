@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 // Import components
 import { convertImageToBase64 } from "../utils";
-import { toastConfig } from "../constants"
+import { toastConfig } from "../constants";
 
 // Create context
 const BlogContext = React.createContext();
@@ -166,7 +166,10 @@ export const BlogProvider = ({ children }) => {
             return false;
         } catch (error) {
             // Thong bao chinh sua that bai
-            toast.error("Lỗi chỉnh sửa thông tin tài khoản. Vui lòng thực hiện lại", toastConfig);
+            toast.error(
+                "Lỗi chỉnh sửa thông tin tài khoản. Vui lòng thực hiện lại",
+                toastConfig
+            );
             console.log(error);
             return false;
         }
@@ -222,7 +225,7 @@ export const BlogProvider = ({ children }) => {
                 return true;
             }
             // Thong bao tao bai viet that bai
-            toast.error(msg, toastConfig);;
+            toast.error(msg, toastConfig);
             return false;
         } catch (error) {
             // Thong bao tao bai viet that bai

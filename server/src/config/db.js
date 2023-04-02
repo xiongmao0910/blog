@@ -2,6 +2,8 @@
 const mongoose = require("mongoose");
 
 async function connect(username, password) {
+    console.log(username);
+    console.log(password);
     try {
         await mongoose.connect(
             `mongodb+srv://${username}:${password}@blog.jb8uwgl.mongodb.net/?retryWrites=true&w=majority`,
