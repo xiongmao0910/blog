@@ -7,7 +7,6 @@ async function connect(username, password) {
             `mongodb+srv://${username}:${password}@blog.jb8uwgl.mongodb.net/?retryWrites=true&w=majority`,
             {
                 useNewUrlParser: true,
-                useMongoClient: true,
             }
         );
 
