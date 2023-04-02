@@ -1,9 +1,11 @@
 // Import library
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 // Import components
 import { useBlog } from "../../context/BlogContext";
+import { toastConfig } from "../../constants";
 
 const EditProfile = () => {
     const usernameRef = useRef();
@@ -32,7 +34,7 @@ const EditProfile = () => {
             /**
              * Thong bao: Ban can nhap ten nguoi dung
              */
-            console.log("chua nhap ten nguoi dung");
+            toast.error("Bạn chưa nhập tên người dùng", toastConfig);
             return;
         }
 
@@ -40,7 +42,7 @@ const EditProfile = () => {
             /**
              * Thong bao: Ban can nhap email
              */
-            console.log("chua nhap email");
+            toast.error("Bạn chưa nhập email", toastConfig);
             return;
         }
 
@@ -59,7 +61,7 @@ const EditProfile = () => {
         const isUpdate = await update(data);
 
         if (isUpdate) {
-            navigate(`/${currentUser.username}`);
+            navigate(`/${usernameRef.current.value}`);
         }
     };
 

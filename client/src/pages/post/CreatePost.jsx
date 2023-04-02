@@ -4,9 +4,12 @@ import { useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
+import { toast } from "react-toastify";
+
 // Import components
 import { useBlog } from "../../context/BlogContext";
 import { toNonAccentVietnamese } from "../../utils";
+import { toastConfig } from "../../constants";
 
 const modules = {
     toolbar: [
@@ -59,7 +62,7 @@ const CreatePost = () => {
             /**
              * Thong bao chua nhap du truong thong tin
              */
-            console.log("chua nhap du truong thong tin");
+            toast.error("Bạn chưa nhập đủ thông tin", toastConfig);
             return;
         }
 

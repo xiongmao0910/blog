@@ -1,5 +1,7 @@
 // Import library
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 // Import components
 import { Header } from "../components";
@@ -60,6 +62,7 @@ const BlogRoutes = () => {
                     </Route>
                 </Routes>
             </main>
+            <ToastContainer />
         </Router>
     );
 };

@@ -1,8 +1,10 @@
 // Import library
 import React, { useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 // Import components
 import { convertImageToBase64 } from "../utils";
+import { toastConfig } from "../constants"
 
 // Create context
 const BlogContext = React.createContext();
@@ -66,17 +68,17 @@ export const BlogProvider = ({ children }) => {
             const { success, msg } = await response.json();
             if (success) {
                 // Thong bao dang ky thanh cong
-                console.log(msg);
+                toast.success(msg, toastConfig);
 
                 return true;
             }
 
             // Thong bao dang nhap that bai
-            console.log(msg);
+            toast.error(msg, toastConfig);
 
             return false;
         } catch (error) {
-            console.log("Lỗi đăng ký vui lòng thử lại");
+            toast.success("Lỗi đăng ký vui lòng thử lại", toastConfig);
             console.log(error);
             return false;
         }
@@ -105,19 +107,19 @@ export const BlogProvider = ({ children }) => {
                 setCurrentUser(data);
 
                 // Thong bao dang nhap thanh cong
-                console.log(msg);
+                toast.success(msg, toastConfig);
 
                 return true;
             }
 
             // Thong bao dang nhap that bai
-            console.log(msg);
+            toast.error(msg, toastConfig);
 
             return false;
         } catch (error) {
             // Thong bao dang nhap that bai
             console.log(error);
-            console.log("Lỗi đăng nhập. Vui lòng thực hiện lại!");
+            toast.error("Lỗi đăng nhập. Vui lòng thực hiện lại!", toastConfig);
             return false;
         }
     }
@@ -125,6 +127,9 @@ export const BlogProvider = ({ children }) => {
     function signout() {
         // Delete token in localStorage
         localStorage.removeItem("token");
+
+        // Thong bao dang xuat thanh cong
+        toast.success("Bạn đã đăng xuất thành công!", toastConfig);
 
         // Remove data user
         setCurrentUser(null);
@@ -150,19 +155,18 @@ export const BlogProvider = ({ children }) => {
             if (success) {
                 setCurrentUser(data);
                 // Thong bao chinh sua thanh cong
-                console.log(msg);
+                toast.success(msg, toastConfig);
+
                 return true;
             }
 
             // Thong bao chinh sua that bai
-            console.log(msg);
+            toast.error(msg, toastConfig);
 
             return false;
         } catch (error) {
             // Thong bao chinh sua that bai
-            console.log(
-                "Lỗi chỉnh sửa thông tin tài khoản. Vui lòng thực hiện lại"
-            );
+            toast.error("Lỗi chỉnh sửa thông tin tài khoản. Vui lòng thực hiện lại", toastConfig);
             console.log(error);
             return false;
         }
@@ -186,10 +190,10 @@ export const BlogProvider = ({ children }) => {
             }
 
             // Thong bao loi nguoi dung khong ton tai
-            console.log(msg);
+            toast.error(msg, toastConfig);
             return;
         } catch (error) {
-            console.log(error);
+            toast.error("Không thể lấy dữ liệu người dùng.", toastConfig);
             return;
         }
     }
@@ -214,15 +218,15 @@ export const BlogProvider = ({ children }) => {
 
             if (success) {
                 // Thong bao tao bai viet thanh cong
-                console.log(msg);
+                toast.success(msg, toastConfig);
                 return true;
             }
             // Thong bao tao bai viet that bai
-            console.log(msg);
+            toast.error(msg, toastConfig);;
             return false;
         } catch (error) {
             // Thong bao tao bai viet that bai
-            console.log("Lỗi tạo bài viết. Vui lòng thực hiện lại");
+            toast.error("Không thể tạo bài viết", toastConfig);
             console.log(error);
             return false;
         }
@@ -245,8 +249,9 @@ export const BlogProvider = ({ children }) => {
 
             return;
         } catch (error) {
-            console.log("Loi server. Vui long thuc hien lai sau!");
+            toast.error("Không thể lấy dữ liệu", toastConfig);
             console.log(error);
+            return;
         }
     }
 
@@ -268,11 +273,12 @@ export const BlogProvider = ({ children }) => {
             }
 
             // Thong bao loi
-            console.log(msg);
+            toast.error(msg, toastConfig);
             return { error: true };
         } catch (error) {
-            console.log("Loi server. Vui long thuc hien lai sau!");
+            toast.error("Không thể lấy dữ liệu", toastConfig);
             console.log(error);
+            return;
         }
     }
 
@@ -295,17 +301,17 @@ export const BlogProvider = ({ children }) => {
             const { success, msg } = await response.json();
             if (success) {
                 // Thong bao chinh sua thanh cong
-                console.log(msg);
+                toast.success(msg, toastConfig);
                 return true;
             }
 
             // Thong bao chinh sua that bai
-            console.log(msg);
+            toast.error(msg, toastConfig);
 
             return false;
         } catch (error) {
             // Thong bao chinh sua that bai
-            console.log("Lỗi chỉnh sửa bài viết. Vui lòng thực hiện lại");
+            toast.error("Không thể chỉnh sửa bài viết", toastConfig);
             console.log(error);
             return false;
         }
@@ -331,16 +337,17 @@ export const BlogProvider = ({ children }) => {
 
             if (success) {
                 // Thong bao xoa bai viet thanh cong
-                console.log(msg);
+                toast.success(msg, toastConfig);
                 return true;
             }
 
             // Thong bao loi
-            console.log(msg);
+            toast.error(msg, toastConfig);
             return false;
         } catch (error) {
-            console.log("Loi server. Vui long thuc hien lai sau!");
+            toast.error("Không thể xóa bài viết", toastConfig);
             console.log(error);
+            return;
         }
     }
 

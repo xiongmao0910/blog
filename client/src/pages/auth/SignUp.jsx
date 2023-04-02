@@ -1,9 +1,11 @@
 // Import library
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 // Import components
 import { useBlog } from "../../context/BlogContext";
+import { toastConfig } from "../../constants";
 
 const SignUp = () => {
     const usernameRef = useRef();
@@ -35,7 +37,7 @@ const SignUp = () => {
             /**
              * Thong bao chua nhap du truong thong tin
              */
-            console.log("chua nhap du truong thong tin");
+            toast.error("Bạn chưa nhập đủ thông tin", toastConfig);
             return;
         }
 
@@ -43,7 +45,7 @@ const SignUp = () => {
             /**
              * Thong bao mat khau khong trung nhau
              */
-            console.log("mat khau khong trung nhau");
+            toast.error("Mật khẩu không khớp", toastConfig);
             return;
         }
 

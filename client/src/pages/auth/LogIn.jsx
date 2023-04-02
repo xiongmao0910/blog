@@ -1,9 +1,11 @@
 // Import library
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 // Import components
 import { useBlog } from "../../context/BlogContext";
+import { toastConfig } from "../../constants";
 
 const LogIn = () => {
     const emailRef = useRef();
@@ -27,7 +29,7 @@ const LogIn = () => {
             /**
              * Thong bao chua nhap du truong thong tin
              */
-            console.log("chua nhap du truong thong tin");
+            toast.error("Bạn chưa nhập đủ thông tin", toastConfig);
             return;
         }
 

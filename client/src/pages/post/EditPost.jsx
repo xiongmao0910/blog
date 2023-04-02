@@ -4,8 +4,11 @@ import { useParams, useNavigate } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
+import { toast } from "react-toastify";
+
 // Import components
 import { useBlog } from "../../context/BlogContext";
+import { toastConfig } from "../../constants";
 
 const modules = {
     toolbar: [
@@ -63,7 +66,7 @@ const EditPost = () => {
             /**
              * Thong bao: Ban can nhap tieu de bai viet
              */
-            console.log("chua nhap tieu de bai viet");
+            toast.error("Bạn chưa nhập tiêu đề bài viết", toastConfig);
             return;
         }
 
@@ -71,7 +74,7 @@ const EditPost = () => {
             /**
              * Thong bao: Ban can nhap noi dung bai viet
              */
-            console.log("chua nhap noi dung bai viet");
+            toast.error("Bạn chưa nhập nội dung bài viết", toastConfig);
             return;
         }
 
@@ -91,7 +94,7 @@ const EditPost = () => {
             /**
              * Thong bao: Noi dung chua thay doi
              */
-            console.log("Noi dung chua thay doi");
+            toast.error("Nội dung chưa thay đổi", toastConfig);
             return;
         }
 
