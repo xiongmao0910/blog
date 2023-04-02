@@ -22,6 +22,10 @@
             object-fit: cover;
             border-radius: 100%;
         }
+
+        svg {
+            font-size: 2.5rem;
+        }
     }
 
     &-username {
@@ -47,7 +51,7 @@
         }
 
         img {
-            max-width: 100%;
+            width: 100%;
             height: auto;
             max-height: calc(50vh + 180px);
             object-fit: cover;

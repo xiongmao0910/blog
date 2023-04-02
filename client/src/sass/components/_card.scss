@@ -20,6 +20,10 @@
         object-fit: cover;
         border-radius: 100%;
         overflow: hidden;
+
+        svg {
+            font-size: 2.5rem;
+        }
     }
 
     &-subtitle {

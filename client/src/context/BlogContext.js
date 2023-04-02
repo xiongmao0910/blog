@@ -269,6 +269,27 @@ export const BlogProvider = ({ children }) => {
         }
     }
 
+    async function getPosts(username) {
+        try {
+            /**
+             * Gui yeu cau len server
+             */
+            const response = await fetch(
+                `https://blog-server-07k0.onrender.com/post/dashboard/${username}`
+            );
+            /**
+             * Lay du lieu tra ve
+             */
+            const { data } = await response.json();
+
+            return data;
+        } catch (error) {
+            toast.error("Không thể lấy dữ liệu", toastConfig);
+            console.log(error);
+            return;
+        }
+    }
+
     async function getPost(username, slug) {
         try {
             /**
@@ -387,6 +408,7 @@ export const BlogProvider = ({ children }) => {
         getUser,
         createPost,
         getAllPost,
+        getPosts,
         getPost,
         editPost,
         deletePost,

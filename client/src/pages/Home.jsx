@@ -1,6 +1,7 @@
 // Import library
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
 
 // Import components
 import { useBlog } from "../context/BlogContext";
@@ -37,11 +38,14 @@ const Home = () => {
                                         to={`/${post.username}`}
                                         className="card-img"
                                     >
-                                        <img
-                                            className="img-fluid"
-                                            src={post.avatar}
-                                            alt={post.username}
-                                        />
+                                        {post.avatar ? (
+                                            <img
+                                                src={post.avatar}
+                                                alt={post.username}
+                                            />
+                                        ) : (
+                                            <FaUserCircle />
+                                        )}
                                     </Link>
                                     <div className="card-info">
                                         <Link

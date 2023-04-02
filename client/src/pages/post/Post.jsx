@@ -1,6 +1,7 @@
 // Import library
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
 
 // Import components
 import { useBlog } from "../../context/BlogContext";
@@ -49,7 +50,14 @@ const Post = () => {
                     <article className="post">
                         <div className="d-flex items-start justify-between">
                             <div className="post-author d-flex items-center">
-                                <img src={post.avatar} alt={post.username} />
+                                {post.avatar ? (
+                                    <img
+                                        src={post.avatar}
+                                        alt={post.username}
+                                    />
+                                ) : (
+                                    <FaUserCircle />
+                                )}
                                 <div>
                                     <Link
                                         className="post-username"

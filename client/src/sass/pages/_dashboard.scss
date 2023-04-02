@@ -1,0 +1,56 @@
+@use "../abstract" as *;
+
+.dashboard {
+    width: min(100%, 45rem);
+    margin-inline: auto;
+
+    &-content {
+        background-color: var(--clr-white);
+        padding: 1.5rem;
+        border-radius: 0.375rem;
+        text-align: center;
+        @include mq(small) {
+            padding: 4rem;
+        }
+
+        img {
+            width: min(100%, 18.75rem);
+            aspect-ratio: 1;
+            margin-inline: auto;
+            object-fit: cover;
+        }
+    }
+
+    &-item {
+        --gap: 0.5rem;
+        padding: 1rem;
+        background-color: var(--clr-white);
+        border-radius: 0.375rem;
+        align-items: center;
+
+        @include mq(small) {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        &-username {
+            color: var(--clr-primary-400);
+        }
+
+        &-action {
+            justify-content: flex-end;
+
+            & > * {
+                padding: 0.25rem 0.75rem;
+                font-size: 87.5%;
+                color: var(--clr-neutral-300);
+                text-transform: capitalize;
+                border-radius: 0.375rem;
+
+                &:hover {
+                    color: var(--clr-black);
+                    background-color: var(--clr-neutral-100);
+                }
+            }
+        }
+    }
+}
