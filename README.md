@@ -18,4 +18,3 @@
 -   Sign out
 -   Create, Edit post
 -   Delete post
--   Comment post

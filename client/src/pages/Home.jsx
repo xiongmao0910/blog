@@ -66,13 +66,20 @@ const Home = () => {
                                             {post.title}
                                         </Link>
                                     </h2>
-                                    {post.tags.length > 0 && (
-                                        <div className="d-flex flex-wrap">
-                                            {post.tags.map((tag, index) => (
-                                                <p key={tag + index}>#{tag}</p>
-                                            ))}
-                                        </div>
-                                    )}
+                                    <div className="tags">
+                                        {post.tags.length > 0 && (
+                                            <div className="d-flex flex-wrap">
+                                                {post.tags.map((tag, index) => (
+                                                    <p
+                                                        className="tags-item"
+                                                        key={tag + index}
+                                                    >
+                                                        #{tag}
+                                                    </p>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         ))}
