@@ -27,7 +27,7 @@ export const BlogProvider = ({ children }) => {
             if (token) {
                 try {
                     const response = await fetch(
-                        `http://localhost:5000/user/${token}`
+                        `https://blog-server-07k0.onrender.com/user/${token}`
                     );
                     const { data } = await response.json();
                     setCurrentUser(data);
@@ -50,7 +50,7 @@ export const BlogProvider = ({ children }) => {
              * Gui yeu cau len server
              */
             const response = await fetch(
-                "http://localhost:5000/user/register",
+                "https://blog-server-07k0.onrender.com/user/register",
                 {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -89,14 +89,17 @@ export const BlogProvider = ({ children }) => {
             /**
              * Gui yeu cau len server
              */
-            const response = await fetch("http://localhost:5000/user/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    email,
-                    password,
-                }),
-            });
+            const response = await fetch(
+                "https://blog-server-07k0.onrender.com/user/login",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        email,
+                        password,
+                    }),
+                }
+            );
 
             /**
              * Lay thong tin va luu token vao localStorage
@@ -140,13 +143,16 @@ export const BlogProvider = ({ children }) => {
             /**
              * Gui yeu cau len server
              */
-            const response = await fetch("http://localhost:5000/user/update", {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    ...dataForm,
-                }),
-            });
+            const response = await fetch(
+                "https://blog-server-07k0.onrender.com/user/update",
+                {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        ...dataForm,
+                    }),
+                }
+            );
 
             /**
              * Lay du lieu tra ve
@@ -181,7 +187,7 @@ export const BlogProvider = ({ children }) => {
              * Gui yeu cau len server
              */
             const response = await fetch(
-                `http://localhost:5000/user/get/${username}`
+                `https://blog-server-07k0.onrender.com/user/get/${username}`
             );
 
             /**
@@ -206,13 +212,16 @@ export const BlogProvider = ({ children }) => {
             /**
              * Gui yeu cau len server
              */
-            const response = await fetch("http://localhost:5000/post/create", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    ...post,
-                }),
-            });
+            const response = await fetch(
+                "https://blog-server-07k0.onrender.com/post/create",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        ...post,
+                    }),
+                }
+            );
 
             /**
              * Lay du lieu tra ve
@@ -240,7 +249,9 @@ export const BlogProvider = ({ children }) => {
             /**
              * Gui yeu cau len server
              */
-            const response = await fetch("http://localhost:5000/post");
+            const response = await fetch(
+                "https://blog-server-07k0.onrender.com/post"
+            );
             /**
              * Lay du lieu tra ve
              */
@@ -264,7 +275,7 @@ export const BlogProvider = ({ children }) => {
              * Gui yeu cau len server
              */
             const response = await fetch(
-                `http://localhost:5000/post/${username}/${slug}`
+                `https://blog-server-07k0.onrender.com/post/${username}/${slug}`
             );
             /**
              * Lay du lieu tra ve
@@ -290,13 +301,16 @@ export const BlogProvider = ({ children }) => {
             /**
              * Gui yeu cau len server
              */
-            const response = await fetch("http://localhost:5000/post/edit", {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    ...dataForm,
-                }),
-            });
+            const response = await fetch(
+                "https://blog-server-07k0.onrender.com/post/edit",
+                {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        ...dataForm,
+                    }),
+                }
+            );
 
             /**
              * Lay du lieu tra ve
@@ -325,14 +339,17 @@ export const BlogProvider = ({ children }) => {
             /**
              * Gui yeu cau len server
              */
-            const response = await fetch("http://localhost:5000/post/delete", {
-                method: "DELETE",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    username,
-                    slug: slug,
-                }),
-            });
+            const response = await fetch(
+                "https://blog-server-07k0.onrender.com/post/delete",
+                {
+                    method: "DELETE",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        username,
+                        slug: slug,
+                    }),
+                }
+            );
             /**
              * Lay du lieu tra ve
              */
