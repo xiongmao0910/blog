@@ -1,5 +1,4 @@
 export { default as Home } from "./Home";
-export { default as Search } from "./Search";
 export { default as Profile } from "./profile/Profile";
 export { default as EditProfile } from "./profile/EditProfile";
 export { default as Post } from "./post/Post";

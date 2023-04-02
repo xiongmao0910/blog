@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(cors());
 
 // Connect to db
-db.connect();
+db.connect(process.env.DB_USERNAME, process.env.DB_PASSWORD);
 
 // Set up routes
 route(app);

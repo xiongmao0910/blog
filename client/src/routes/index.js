@@ -10,7 +10,6 @@ import PostRoute from "./PostRoute";
 
 import {
     Home,
-    Search,
     Profile,
     EditProfile,
     Post,
@@ -30,7 +29,6 @@ const BlogRoutes = () => {
                 <Routes>
                     {/* Routes for user */}
                     <Route path="/" element={<Home />} />
-                    <Route path="/search" element={<Search />} />
                     {/* Detail post */}
                     <Route path="/:username/:slug" element={<Post />} />
                     {/* Profile */}

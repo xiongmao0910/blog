@@ -1,11 +1,14 @@
 // Import library
 const mongoose = require("mongoose");
 
-async function connect() {
+async function connect(username, password) {
     try {
-        await mongoose.connect("mongodb://127.0.0.1/blog_dev", {
-            useNewUrlParser: true,
-        });
+        await mongoose.connect(
+            `mongodb+srv://${username}:${password}@blog.jb8uwgl.mongodb.net/?retryWrites=true&w=majority`,
+            {
+                useNewUrlParser: true,
+            }
+        );
 
         console.log("Connect successfully!!");
     } catch (error) {

@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { AiOutlineSearch } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 
 // Import components
@@ -37,9 +36,6 @@ const Header = () => {
                         Blog
                     </Link>
                     <div className="d-flex items-center">
-                        <Link to="/search" className="header-icon">
-                            <AiOutlineSearch />
-                        </Link>
                         <div className="dropdown">
                             {currentUser?.photoURL.length ? (
                                 <img
