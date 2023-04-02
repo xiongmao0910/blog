@@ -4,7 +4,8 @@
   "description": "Build server for blog website",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --inspect src/index.js"
+    "start": "nodemon --inspect src/index.js",
+    "build": "npm i"
   },
   "repository": {
     "type": "git",
